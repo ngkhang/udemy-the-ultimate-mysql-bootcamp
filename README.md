@@ -10,6 +10,10 @@ Table of Contents
     - [Section 3: Create databases and tables](#section-3-create-databases-and-tables)
       - [Databases Overview](#databases-overview)
       - [Tables Overview](#tables-overview)
+    - [Section 4-5: CRUD Basics](#section-4-5-crud-basics)
+      - [Keyword common](#keyword-common)
+      - [CRUD Overview](#crud-overview)
+    - [Section 6: CRUD Challenge](#section-6-crud-challenge)
   - [References](#references)
 
 ## Section
@@ -68,6 +72,132 @@ Table of Contents
   - Rows (Records): Contain actual data values
 - Data types common: Numeric types | String types | Date types | etc.
 - [Example: Database Operations](./source/section-03-example-02-table.sql)
+
+### Section 4-5: CRUD Basics
+
+- Database used for practice: [Source](./source/section_05-initial.sql)
+- Slide:
+  - [Slide 04: Inserting Data](./resources/slides/04-slide-inserting-data.pdf)
+  - [Slide 05: CRUD Basics](./resources/slides/05-slide-crud-basics.pdf)
+
+#### Keyword common
+
+- `NULL`: the value is unknown, no information, no value, does not mean zero. `NOT NULL`: can be empty
+- `DEFAULT`: to set the default value if it wasn't provided
+- `PRIMARY KEY`: is a unique identifier, which can't `NULL`
+- `AUTO_INCREMENT`: automatically increments for each new data inserted into the table
+
+```sql
+-- Option 1
+CREATE TABLE cats4 (
+    cat_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL DEFAULT 1
+);
+
+-- Option 2
+CREATE TABLE cats4 (
+    cat_id INT AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL DEFAULT 1,
+
+    PRIMARY KEY (name)
+)
+```
+
+#### CRUD Overview
+
+- Create - `INSERT`
+  - Example:
+
+  ```sql
+  -- With a single data
+  INSERT INTO cats(name, age)
+  VALUES ('Jenkins', 7);
+
+  -- With multi data
+  INSERT INTO cats(name, age)
+  VALUES ('Charlie', 17),
+      ('Connie', 10);
+  ```
+
+  - Practice:
+    - [Practice: People](./source/section_04-practice_01-people.sql)
+    - [Practice: Employees](./source/section_04-practice_02-employees.sql)
+
+- Read - `SELECT`
+  - Example:
+
+    ```sql
+    -- Retrieve all columns with *
+    SELECT
+        *
+    FROM
+        cats;
+
+    -- Select specific column(s) from table
+    SELECT
+        name, age
+    FROM
+        cats;
+
+    -- Filter with WHERE clause
+    SELECT
+        *
+    FROM
+        cats
+    WHERE
+        age > 5;
+
+    -- Aliases with AS
+    SELECT
+        cat_id AS catId
+    FROM
+        cats;
+    ```
+
+  - Practice: [Practice: Read](./source/section_05-practice_01-read.sql)
+
+- Update: `UPDATE`
+  - Note:
+    - 💡 A good rule: try SELECTing before you UPDATE
+    - ⚠️ If you don't have a `WHERE` clause, all rows in the table will be set to a new value
+  - Example:
+
+    ```sql
+    UPDATE cats
+    SET
+        breed = 'Shorthair'
+    WHERE
+        breed = 'Tabby';
+    ```
+
+  - Practice: [Practice: Update](./source/section_05-practice_02-update.sql)
+
+- Delete: `DELETE`
+  - Note:
+    - ❗ Deleting data is not reversible
+    - ❗ A `WHERE` clause
+      - Without: all rows in the table will be deleted.
+      - With: the rows that are in correct condition will be deleted.
+  - Example:
+
+    ```sql
+    -- Delete all rows
+    -- DELETE FROM cats;
+
+    -- Delete specific row
+    DELETE FROM cats
+    WHERE
+        name = 'Egg';
+    ```
+
+  - Practice: [Practice: Delete](./source/section_05-practice_03-delete.sql)
+
+### Section 6: CRUD Challenge
+
+- [Slide 06](./resources/slides/06-slide-crud-challenge.pdf)
+- [Solution](./source/section_06-challenge.sql)
 
 ---
 
