@@ -14,6 +14,7 @@ Table of Contents
       - [Keyword common](#keyword-common)
       - [CRUD Overview](#crud-overview)
     - [Section 6: CRUD Challenge](#section-6-crud-challenge)
+    - [Section 7: String Functions](#section-7-string-functions)
   - [References](#references)
 
 ## Section
@@ -198,6 +199,24 @@ CREATE TABLE cats4 (
 
 - [Slide 06](./resources/slides/06-slide-crud-challenge.pdf)
 - [Solution](./source/section_06-challenge.sql)
+
+### Section 7: String Functions
+
+- [MySQL: String functions](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html)
+- [Slide 07](./resources/slides/07-slide-string-functions.pdf)
+- Database for practice: [Books Data](./source/section_07-initial_books.sql)
+- Common functions:
+  - `CONCAT()` and `CONCAT_WS()`
+  - `SUBSTRING()`
+  - `REPLACE()`
+  - `REVERSE()`
+  - `CHAR_LENGTH()` vs `LENGTH()`
+  - `UPPER()` and `LOWER()`
+  - `lEFT()` and `RIGHT()`
+  - `TRIM()`, `LTRIM()`, and `RTRIM()`
+  - `REPEAT()`
+- [Example String Functions](./source/section_07-example.sql)
+- [Practice: String Functions](./source/section_07-practice.sql)
 
 ---
 
