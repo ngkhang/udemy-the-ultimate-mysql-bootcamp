@@ -15,6 +15,7 @@ Table of Contents
       - [CRUD Overview](#crud-overview)
     - [Section 6: CRUD Challenge](#section-6-crud-challenge)
     - [Section 7: String Functions](#section-7-string-functions)
+    - [Section 8: Refining Selections](#section-8-refining-selections)
   - [References](#references)
 
 ## Section
@@ -217,6 +218,18 @@ CREATE TABLE cats4 (
   - `REPEAT()`
 - [Example String Functions](./source/section_07-example.sql)
 - [Practice: String Functions](./source/section_07-practice.sql)
+
+### Section 8: Refining Selections
+
+- [Slide 08: Refining Selections](./resources/slides/08-slide-refining-selections.pdf)
+- Database for practice: [Books Data: Update](./source/section_08-books-update.sql)
+- Claude commons:
+  - `DISTINCT`
+  - `ORDER BY`
+  - `LIMIT`
+  - `LIKE`
+- [Example Refining Selections](./source/section_08-example.sql)
+- [Practice: Refining Selections](./source/section_08-practice.sql)
 
 ---
 
