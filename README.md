@@ -16,6 +16,7 @@ Table of Contents
     - [Section 6: CRUD Challenge](#section-6-crud-challenge)
     - [Section 7: String Functions](#section-7-string-functions)
     - [Section 8: Refining Selections](#section-8-refining-selections)
+    - [Section 9: Aggregate Functions](#section-9-aggregate-functions)
   - [References](#references)
 
 ## Section
@@ -230,6 +231,22 @@ CREATE TABLE cats4 (
   - `LIKE`
 - [Example Refining Selections](./source/section_08-example.sql)
 - [Practice: Refining Selections](./source/section_08-practice.sql)
+
+### Section 9: Aggregate Functions
+
+- [MySQL: Aggregate Function](https://dev.mysql.com/doc/refman/8.0/en/aggregate-functions.html)
+- [Slide 09: Aggregate Functions](./resources/slides/09-slide-aggregate-functions.pdf)
+
+| Function            | Description                                                           |
+| ------------------- | --------------------------------------------------------------------- |
+| `COUNT()`           | Return a count of the number of rows returned                         |
+| `MIN()` and `MAX()` | Return the minimum and maximum value                                  |
+| `AVG()`             | Return the average value of the argument                              |
+| `SUM()`             | Return the sum                                                        |
+| `GROUP BY`          | The statement groups rows that have the same values into summary rows |
+
+- [Example Aggregate Functions](./source/section_09-example.sql)
+- [Practice: Aggregate Functions](./source/section_09-practice.sql)
 
 ---
 
