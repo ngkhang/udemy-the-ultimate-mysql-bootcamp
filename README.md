@@ -17,6 +17,7 @@ Table of Contents
     - [Section 7: String Functions](#section-7-string-functions)
     - [Section 8: Refining Selections](#section-8-refining-selections)
     - [Section 9: Aggregate Functions](#section-9-aggregate-functions)
+    - [Section 10: Data types](#section-10-data-types)
   - [References](#references)
 
 ## Section
@@ -247,6 +248,34 @@ CREATE TABLE cats4 (
 
 - [Example Aggregate Functions](./source/section_09-example.sql)
 - [Practice: Aggregate Functions](./source/section_09-practice.sql)
+
+### Section 10: Data types
+
+- References:
+  - [MySQL: Data types](https://dev.mysql.com/doc/refman/8.0/en/data-types.html)
+  - [Slide 10: Data types](./resources/slides/10-slide-revisiting-data-types.pdf)
+- Example and Practices:
+  - [Example](./source/section_10-example.sql)
+  - [Practices](./source/section_10-practice.sql)
+- Summary
+  - String Data types: `CHAR` and `VARCHAR`
+  - Numeric Data types:
+    - The exact numeric data types:
+      - `INT` (is a synonym for `INTEGER`), `TINYINT`, `SMALLINT`, `MEDIUMINT`, `BIGINT`, etc.
+      - `DECIMAL` and `NUMERIC`
+    - The approximate numeric data types: `FLOAT` and `DOUBLE`
+  - Date and Time Data Types: `DATE`, `TIME`, `DATETIME`, `TIMESTAMP`
+  - Date and Time Functions:
+    - `DATE_FORMAT(date,format)`
+    - Time:
+      - `TIMEDIFF(expr1,expr2)`
+      - `SUBTIME(expr1,expr2)` and `ADDTIME(expr1,expr2)`
+    - Date:
+      - `DATEDIFF(expr1,expr2)`
+      - `DATE_ADD(date,INTERVAL expr unit)` and `DATE_SUB(date,INTERVAL expr unit)`
+    - Timestamp:
+      - `TIMESTAMPDIFF()`
+      - `TIMESTAMPADD()` and `TIMESTAMPDIFF()`
 
 ---
 
