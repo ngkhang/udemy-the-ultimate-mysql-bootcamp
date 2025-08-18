@@ -18,6 +18,7 @@ Table of Contents
     - [Section 8: Refining Selections](#section-8-refining-selections)
     - [Section 9: Aggregate Functions](#section-9-aggregate-functions)
     - [Section 10: Data types](#section-10-data-types)
+    - [Section 11: Comparison and Logical Operations](#section-11-comparison-and-logical-operations)
   - [References](#references)
 
 ## Section
@@ -112,6 +113,7 @@ CREATE TABLE cats4 (
 #### CRUD Overview
 
 - Create - `INSERT`
+
   - Example:
 
   ```sql
@@ -130,6 +132,7 @@ CREATE TABLE cats4 (
     - [Practice: Employees](./source/section_04-practice_02-employees.sql)
 
 - Read - `SELECT`
+
   - Example:
 
     ```sql
@@ -163,6 +166,7 @@ CREATE TABLE cats4 (
   - Practice: [Practice: Read](./source/section_05-practice_01-read.sql)
 
 - Update: `UPDATE`
+
   - Note:
     - 💡 A good rule: try SELECTing before you UPDATE
     - ⚠️ If you don't have a `WHERE` clause, all rows in the table will be set to a new value
@@ -179,11 +183,9 @@ CREATE TABLE cats4 (
   - Practice: [Practice: Update](./source/section_05-practice_02-update.sql)
 
 - Delete: `DELETE`
-  - Note:
-    - ❗ Deleting data is not reversible
-    - ❗ A `WHERE` clause
-      - Without: all rows in the table will be deleted.
-      - With: the rows that are in correct condition will be deleted.
+
+  - Note: - ❗ Deleting data is not reversible - ❗ A `WHERE` clause - Without: all rows in the table will be deleted.
+          - With: the rows that are in correct condition will be deleted.
   - Example:
 
     ```sql
@@ -276,6 +278,31 @@ CREATE TABLE cats4 (
     - Timestamp:
       - `TIMESTAMPDIFF()`
       - `TIMESTAMPADD()` and `TIMESTAMPDIFF()`
+
+### Section 11: Comparison and Logical Operations
+
+- References:
+  - [Slide 11: Comparison and Logical Operators](./resources/slides/11-slide-comparison-and-logical-operators.pdf)
+- Summary:
+  - Comparison Operators:
+    - Equal: `=`
+    - Not equal: `<>` or `!=`
+    - Greater than `>` and Greater than or equal: `>=`
+    - Less than `<` and Less than or equal: `<=`
+  - Logical Operators:
+    - `LIKE`
+    - `NOT`
+    - `AND`,
+    - `OR`
+    - `BETWEEN`
+    - `IN`
+  - Arithmetic Operators: Modulo: `%`
+  - `IS NULL` and `IS NOT NULL` operators
+  - CASE Statement: `CASE`
+  - Compare Date time with `CAST()` function
+- Example and Practices:
+  - [Example](./source/section_11-example.sql)
+  - [Practices](./source/section_11-practice.sql)
 
 ---
 
