@@ -19,6 +19,7 @@ Table of Contents
     - [Section 9: Aggregate Functions](#section-9-aggregate-functions)
     - [Section 10: Data types](#section-10-data-types)
     - [Section 11: Comparison and Logical Operations](#section-11-comparison-and-logical-operations)
+    - [Section 12: Constraints and `ALTER TABLE` statement](#section-12-constraints-and-alter-table-statement)
   - [References](#references)
 
 ## Section
@@ -303,6 +304,29 @@ CREATE TABLE cats4 (
 - Example and Practices:
   - [Example](./source/section_11-example.sql)
   - [Practices](./source/section_11-practice.sql)
+
+### Section 12: Constraints and `ALTER TABLE` statement
+
+- References:
+  - [Slide 12: Constraints and Alter table](./resources/slides/12-slide-constraints-and-alter-table.pdf)
+  - [MySQL: Alter table statement](https://dev.mysql.com/doc/refman/8.0/en/alter-table.html)
+- Summary:
+  - Constraints:
+    - `UNIQUE`: all values in a column are different
+    - `CHECK`: values in a column satisfies a specific condition
+    - `CONSTRAINT`: provide a name for the constraint; combine multi-column checks
+  - `ALTER TABLE` statement:
+    - To add, delete, or modify columns in an existing table.
+      - `{ADD | DROP | RENAME | MODIFY} COLUMN`: add, delete, rename, and modify column
+      - `CHANGE COLUMN`: to rename a column and change its data type
+    - To add, delete, or modify constraints in an existing table
+      - `{ADD | DROP} CONSTRAINT`: add and delete constraints
+      - `ALTER TABLE` and `MODIFY`: modify constraints
+  - Rename table:
+    - `RENAME TABLE`
+    - `ALTER TABLE <old_name> RENAME TO <new_name>`
+
+- [Example](./source/section_12-example.sql)
 
 ---
 
