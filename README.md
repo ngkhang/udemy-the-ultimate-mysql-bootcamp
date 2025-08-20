@@ -20,6 +20,7 @@ Table of Contents
     - [Section 10: Data types](#section-10-data-types)
     - [Section 11: Comparison and Logical Operations](#section-11-comparison-and-logical-operations)
     - [Section 12: Constraints and `ALTER TABLE` statement](#section-12-constraints-and-alter-table-statement)
+    - [Section 13 and 14: Relationship](#section-13-and-14-relationship)
   - [References](#references)
 
 ## Section
@@ -327,6 +328,41 @@ CREATE TABLE cats4 (
     - `ALTER TABLE <old_name> RENAME TO <new_name>`
 
 - [Example](./source/section_12-example.sql)
+
+### Section 13 and 14: Relationship
+
+- References:
+  - [Slide 13: One-to-Many and Joins](./resources/slides/13-slide-one-to-many-and-joins.pdf)
+  - [Slide 14: Many-to-Many](./resources/slides/14-slide-many-to-many.pdf)
+  - The `tv_Series` database for section 14: [TV_SERIES data](./source/section_14-initial_tv_series.sql)
+- Summary:
+  - Functions:
+    - `IFNUll(expression, alt_value)`: Return `alt_value` if the expression is NULL, otherwise return the `expression`.
+    - `ROUND(number, decimals)`: Rounds a `number` to a specific `decimals` of decimal places.
+    - `IF(condition, value_if_true, value_if_false)`: Returns `value_if_true` if a condition is TRUE, or `value_if_false` if a condition is FALSE.
+  - Constraints:
+    - `FOREIGN KEY`:
+      - Used to prevent actions that would destroy links between tables
+      - The `FK` is a filed (or collection of field) in one table (called the child table), that refers to the `PK` in another table (called the the referenced or parent table)
+      - It can prevents invalid data from being inserted into the foreign key column, because it has to be one of the values contained in the parent table.
+    - `ON DELETE CASCADE`: to delete the rows from the child table automatically, when the rows from the parent table are deleted
+  - Relationship Basics:
+    - One-to-One: `1:1`
+    - One-to-Many: `1:n`
+    - Many-to-Many: `n-m`
+  - Joins: A - B
+    - Cross Join:
+      - Select all records from A, and all records from B
+    - Inner Join: `JOIN ... ON` or `INNER JOIN ... ON`
+      - Select all records from A and B where the join condition is met
+    - Left Join: `LEFT JOIN ... ON`
+      - Select all records from A, along with any matching records in B.
+    - Right Join: `RIGHT JOIN`
+      - Select all records from B, along with any matching records in A.
+- Example and Practices:
+  - [Example: Section 13](./source/section_13-example.sql)
+  - [Practices: Section 13](./source/section_13-practice.sql)
+  - [Practices: Section 14](./source/section_14-practice.sql)
 
 ---
 
