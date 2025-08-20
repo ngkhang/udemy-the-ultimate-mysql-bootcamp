@@ -334,8 +334,12 @@ CREATE TABLE cats4 (
 - References:
   - [Slide 13: One-to-Many and Joins](./resources/slides/13-slide-one-to-many-and-joins.pdf)
   - [Slide 14: Many-to-Many](./resources/slides/14-slide-many-to-many.pdf)
+  - The `tv_Series` database for section 14: [TV_SERIES data](./source/section_14-initial_tv_series.sql)
 - Summary:
-  - `IFNUll(expression, alt_value)`: Return `alt_value` if the expression is NULL, otherwise return the `expression`.
+  - Functions:
+    - `IFNUll(expression, alt_value)`: Return `alt_value` if the expression is NULL, otherwise return the `expression`.
+    - `ROUND(number, decimals)`: Rounds a `number` to a specific `decimals` of decimal places.
+    - `IF(condition, value_if_true, value_if_false)`: Returns `value_if_true` if a condition is TRUE, or `value_if_false` if a condition is FALSE.
   - Constraints:
     - `FOREIGN KEY`:
       - Used to prevent actions that would destroy links between tables
@@ -356,8 +360,9 @@ CREATE TABLE cats4 (
     - Right Join: `RIGHT JOIN`
       - Select all records from B, along with any matching records in A.
 - Example and Practices:
-  - [Example](./source/section_13-example.sql)
-  - [Practices](./source/section_13-practice.sql)
+  - [Example: Section 13](./source/section_13-example.sql)
+  - [Practices: Section 13](./source/section_13-practice.sql)
+  - [Practices: Section 14](./source/section_14-practice.sql)
 
 ---
 
