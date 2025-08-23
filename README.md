@@ -21,6 +21,7 @@ Table of Contents
     - [Section 11: Comparison and Logical Operations](#section-11-comparison-and-logical-operations)
     - [Section 12: Constraints and `ALTER TABLE` statement](#section-12-constraints-and-alter-table-statement)
     - [Section 13 and 14: Relationship](#section-13-and-14-relationship)
+    - [Section 15: Views](#section-15-views)
   - [References](#references)
 
 ## Section
@@ -363,6 +364,85 @@ CREATE TABLE cats4 (
   - [Example: Section 13](./source/section_13-example.sql)
   - [Practices: Section 13](./source/section_13-practice.sql)
   - [Practices: Section 14](./source/section_14-practice.sql)
+
+### Section 15: Views
+
+- References:
+  - [MySQL: Views](https://dev.mysql.com/doc/refman/8.0/en/views.html)
+  - [Serve SQL Modes](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html)
+- Summary:
+  - MySQL Views:
+    - Stored queries that when invoked produce a result set.
+    - A view acts as a virtual table: contains rows and columns, just like a real table
+    - MySQL supports views, including update table views.
+    - View syntax:
+      - Create: `CREATE VIEW`
+
+        ```sql
+        CREATE VIEW view_name AS
+            SELECT column1, column2, ...
+            FROM table_name
+            WHERE condition;
+        ```
+
+      - Update view:
+        - `CREATE OR REPLACE VIEW`: can be create (if view is not exist) or update view
+        - `ALTER VIEW`: only can update view
+
+        ```sql
+        -- Usage: CREATE OR REPLACE VIEW
+        CREATE OR REPLACE VIEW view_name AS
+        SELECT column1, column2, ...
+        FROM table_name
+        WHERE condition;
+
+        -- Usage: ALTER VIEW
+        ALTER VIEW view_name AS
+        SELECT column1, column2, ...
+        FROM table_name
+        WHERE condition;
+
+        ```
+
+      - Delete: `DROP VIEW`
+
+        ```sql
+        DROP VIEW view_name;
+        ```
+
+    - Notes:
+      - A view table can be used to specify tables to be updated in data change statement (e.g. `UPDATE`, `DELETE`, and `INSERT` to update the contents of the underlying table). But a view is not updatable if it contains any of the following: [Updatable and Insertable Views](https://dev.mysql.com/doc/refman/8.0/en/view-updatability.html)
+        - Aggregate functions or window functions
+        - `DISTINCT`
+        - `GROUP BY`
+        - `UNION`
+        - etc
+  - The `HAVING` clause: like the `WHERE` clause, specifies selection conditions.
+
+    | `WHERE` clause                                                                              | `HAVING` clause                                                         |
+    | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+    | Specifies conditions on columns in the select list, but cannot refer to aggregate functions | Specifies conditions on groups, typically formed by the GROUP BY clause |
+
+  - The `GROUP BY` clause permits a `WITH ROLLUP` modifier that causes summary output to include extra rows that represent higher-level (that is, super-aggregate)
+    - If the `GROUP BY` has multiple columns, the `ROLLUP` has more complex effect. In this case, each time there is a change in value in any but the last grouping column, the query produces an extra super-aggregate summary row.
+  - Server SQL Modes:
+
+    |                  | Global                            | Session                            |
+    | ---------------- | --------------------------------- | ---------------------------------- |
+    | Scope            | Global                            | Session                            |
+    | Setting SQL Mode | `SET GLOBAL sql_model = '<mode>'` | `SET SESSION sql_model = '<mode>'` |
+    | View Modes       | `SELECT @@GLOBAL.sql_mode`        | `SELECT @@SESSION.sql_mode`        |
+
+    - The most important SQL mode common:
+      - `STRICT_TRANS_TABLES`
+      - `ONLY_FULL_GROUP_BY`
+      - `NO_ZERO_IN_DATE`
+      - ...etc
+
+- Examples:
+  - [Views](/source/section_15-example_view.sql)
+  - [`HAVING` and `ROLLUP` for `GROUP BY`](/source/section_15-example_having_and_rollup_for_group_by.sql)
+  - [Model](/source//section_15-example_model.sql)
 
 ---
 
