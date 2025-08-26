@@ -22,6 +22,7 @@ Table of Contents
     - [Section 12: Constraints and `ALTER TABLE` statement](#section-12-constraints-and-alter-table-statement)
     - [Section 13 and 14: Relationship](#section-13-and-14-relationship)
     - [Section 15: Views](#section-15-views)
+    - [Section 16 Window Functions](#section-16-window-functions)
   - [References](#references)
 
 ## Section
@@ -443,6 +444,35 @@ CREATE TABLE cats4 (
   - [Views](/source/section_15-example_view.sql)
   - [`HAVING` and `ROLLUP` for `GROUP BY`](/source/section_15-example_having_and_rollup_for_group_by.sql)
   - [Model](/source//section_15-example_model.sql)
+
+### Section 16 Window Functions
+
+- References:
+  - [Slide: 16 Window Functions](./resources/slides/16-slide-window-functions.pdf)
+  - [MySQL: Window Functions](https://dev.mysql.com/doc/refman/8.0/en/window-functions.html)
+  - Database for practice: [Initial Employees](./source/section_16-initial_employees.sql)
+- Summary:
+  - What is a Window Functions?
+    - MySQL supports window functions that, for each row from a query, perform a calculation using rows related to that row.
+    - It does without collapsing rows like `GROUP BY` does.
+  - The `OVER()` clause specifies how to partition query rows into groups for processing by the window function:
+    - With Empty: treats the entire set of query rows as a single partition
+    - With Clauses:
+      - `PARTITION BY`: Divides rows into partitions
+      - `ORDER BY`: Defines ordering within partitions
+      - etc
+    - Standard aggregates can use `OVER()` clause: `AVG()`, `COUNT()`, `MAX()`, `MIN()`, `SUM()`, etc.
+  - Window Functions:
+    - `ROW_NUMBER()`: Number of current row within its partition
+    - `RANK()`: Rank of current row within its partition, with gaps (e.g.: 1,2,3,3,5)
+    - `DENSE_RANK()`: Rank of current row within its partition, without gaps (e.g: 1,2,3,3,4)
+    - `NTILE()`: Bucket number of current row within its partition (divides into n groups)
+    - `FIRST_VALUE(expr)`: Value of argument from first row of window frame
+    - `LAST_VALUE(expr)`: Value of argument from last row of window frame
+    - `NTH_VALUE(expr)`: Value of argument from nth row of window frame
+    - `LEAD(expr, offset, default)`: Value of argument from row leading current row within partition
+    - `LAG(expr, offset, default)`: Value of argument from row lagging current row within partition
+- [Example](./source/section_16-example.sql)
 
 ---
 
