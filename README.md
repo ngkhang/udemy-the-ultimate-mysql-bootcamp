@@ -479,8 +479,10 @@ CREATE TABLE cats4 (
 
 - References:
   - [Slide: 17-18 Instagram Database Clone](./resources/slides/17-18-slide-instagram-database-clone.pdf)
+  - [Dataset for Instagram](./source/section_18-dataset-ig.sql)
 - Practices:
   - [Create Instagram Database](./source/section_17-practice_instagram.sql)
+  - [Instagram Challenge](./source/section_18-practice_instagram_challenge.sql)
 
 ---
 
