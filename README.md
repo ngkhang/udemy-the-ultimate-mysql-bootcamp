@@ -23,6 +23,7 @@ Table of Contents
     - [Section 13 and 14: Relationship](#section-13-and-14-relationship)
     - [Section 15: Views](#section-15-views)
     - [Section 16 Window Functions](#section-16-window-functions)
+    - [Section 17-18: Instagram Database Clone](#section-17-18-instagram-database-clone)
   - [References](#references)
 
 ## Section
@@ -473,6 +474,15 @@ CREATE TABLE cats4 (
     - `LEAD(expr, offset, default)`: Value of argument from row leading current row within partition
     - `LAG(expr, offset, default)`: Value of argument from row lagging current row within partition
 - [Example](./source/section_16-example.sql)
+
+### Section 17-18: Instagram Database Clone
+
+- References:
+  - [Slide: 17-18 Instagram Database Clone](./resources/slides/17-18-slide-instagram-database-clone.pdf)
+  - [Dataset for Instagram](./source/section_18-dataset-ig.sql)
+- Practices:
+  - [Create Instagram Database](./source/section_17-practice_instagram.sql)
+  - [Instagram Challenge](./source/section_18-practice_instagram_challenge.sql)
 
 ---
 
