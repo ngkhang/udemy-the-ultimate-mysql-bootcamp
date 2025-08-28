@@ -1,0 +1,101 @@
+CREATE DATABASE ig_clone;
+
+USE ig_clone;
+
+-- Users table
+CREATE TABLE
+  users (
+    id INTEGER AUTO_INCREMENT,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    modified_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+  );
+
+-- Photos table
+CREATE TABLE
+  photos (
+    id INT AUTO_INCREMENT NOT NULL UNIQUE,
+    image_url VARCHAR(225) NOT NULL,
+    caption VARCHAR(255) NOT NULL DEFAULT '',
+    location VARCHAR(255) NOT NULL DEFAULT '',
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    modified_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    user_id INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES users (id)
+  );
+
+-- Comments table
+CREATE TABLE
+  comments (
+    id INT AUTO_INCREMENT NOT NULL UNIQUE,
+    content VARCHAR(225) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    modified_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    user_id INT NOT NULL,
+    photo_id INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES users (id),
+    FOREIGN KEY (photo_id) REFERENCES photos (id)
+  );
+
+-- Likes table
+CREATE TABLE
+  likes (
+    -- id INT AUTO_INCREMENT NOT NULL UNIQUE,
+    photo_id INT NOT NULL,
+    user_id INT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    modified_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    -- PRIMARY KEY (id),
+    PRIMARY KEY (user_id, photo_id),
+    FOREIGN KEY (user_id) REFERENCES users (id),
+    FOREIGN KEY (photo_id) REFERENCES photos (id)
+  );
+
+-- Followers table
+CREATE TABLE
+  followers (
+    follower_id INT NOT NULL,
+    followee INT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    modified_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (follower_id, followee),
+    FOREIGN KEY (follower_id) REFERENCES users (id),
+    FOREIGN KEY (followee) REFERENCES users (id)
+  );
+
+-- Hashtags table
+CREATE TABLE
+  hashtags (
+    id INT AUTO_INCREMENT NOT NULL UNIQUE,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    modified_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+  );
+
+-- Photo hashtags table
+CREATE TABLE
+  photo_hashtags (
+    photo_id INT NOT NULL,
+    hashtag_id INT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    modified_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (photo_id, hashtag_id),
+    FOREIGN KEY (photo_id) REFERENCES photos (id),
+    FOREIGN KEY (hashtag_id) REFERENCES hashtags (id)
+  );
+
+-- Unfollows table
+CREATE TABLE
+  unfollows (
+    follower_id INT NOT NULL,
+    followee INT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    modified_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (follower_id, followee),
+    FOREIGN KEY (follower_id) REFERENCES users (id),
+    FOREIGN KEY (followee) REFERENCES users (id)
+  );
