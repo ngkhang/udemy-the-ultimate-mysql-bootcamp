@@ -25,6 +25,7 @@ Table of Contents
     - [Section 16 Window Functions](#section-16-window-functions)
     - [Section 17-18: Instagram Database Clone](#section-17-18-instagram-database-clone)
     - [Section 19: Database Triggers](#section-19-database-triggers)
+    - [Section 20: Introduction NodeJS](#section-20-introduction-nodejs)
   - [References](#references)
 
 ## Section
@@ -547,6 +548,15 @@ CREATE TABLE cats4 (
 
 - [Example](./source/section_19-example.sql)
 - [Practice](./source/section_19-practice.sql)
+
+### Section 20: Introduction NodeJS
+
+- References:
+  - [Slide: 20 Introduction NodeJS](./resources/slides/20-slide-introducing-node.pdf)
+  - [Initial database](./source/section_20-intro-nodejs/section_20-initial.sql)
+  - [Source: NodeJS](./resources/section_20-intro-nodejs-and-mysql.zip)
+- [Example](./source/section_20-intro-nodejs/app.js)
+- [Practice: Query](./source/section_20-intro-nodejs/section_20-practice.sql)
 
 ---
 
