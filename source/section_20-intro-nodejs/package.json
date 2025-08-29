@@ -1,0 +1,18 @@
+{
+	"name": "section_20-intro-nodejs",
+	"version": "1.0.0",
+	"main": "app.js",
+	"author": "Khang Nguyen",
+	"license": "ISC",
+	"type": "module",
+	"description": "This is a section 20: Introduction to NodeJS",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"dependencies": {
+		"@faker-js/faker": "^10.0.0",
+		"dotenv": "^17.2.1",
+		"mysql2": "^3.14.3"
+	}
+}
