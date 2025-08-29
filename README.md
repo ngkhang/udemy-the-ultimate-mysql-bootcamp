@@ -24,6 +24,7 @@ Table of Contents
     - [Section 15: Views](#section-15-views)
     - [Section 16 Window Functions](#section-16-window-functions)
     - [Section 17-18: Instagram Database Clone](#section-17-18-instagram-database-clone)
+    - [Section 19: Database Triggers](#section-19-database-triggers)
   - [References](#references)
 
 ## Section
@@ -483,6 +484,69 @@ CREATE TABLE cats4 (
 - Practices:
   - [Create Instagram Database](./source/section_17-practice_instagram.sql)
   - [Instagram Challenge](./source/section_18-practice_instagram_challenge.sql)
+
+### Section 19: Database Triggers
+
+- References:
+  - [Slide: 19 Database triggers](./resources/slides/19-slide-database-triggers.pdf)
+  - [MySQL Error](https://dev.mysql.com/doc/mysql-errors/8.4/en/server-error-reference.html)
+  - [Initial Instagram Database](./source/section_19-initial-ig.sql)
+- Summary
+  - MySQL Trigger:
+    - MySQL Trigger: SQL statements that are AUTOMATICALLY EXECUTED when a specific database event occurs on a table
+    - Working with Trigger
+      - Get all triggers: `SHOW TRIGGERS`
+      - Get triggers for specific table: `SHOW TRIGGERS FROM database_name WHERE Table = 'table_name'`
+      - Delete a trigger: `DROP TRIGGER [IF EXISTS] trigger_name`
+      - Creating a trigger:
+        - `trigger_name`: Common format is `[trigger_time]_[table_name]_[event]`
+        - `trigger_time`:  `BEFORE` or `AFTER`
+        - `trigger_event`: `INSERT`, `UPDATE`, or `DELETE`
+
+        ```sql
+        DELIMITER $$
+        CREATE TRIGGER trigger_name
+          trigger_time trigger_event ON table_name FOR EACH ROW
+        BEGIN
+          -- trigger logic here
+        END$$
+        DELIMITER ;
+        ```
+
+    - Notes:
+      - Each trigger tracks only one event on one table
+      - Use `NEW.column_name` and `OLD.column_name` to reference new and old values
+      - `NEW` not available for `DELETE`, `OLD` not available for `INSERT`
+  - MySQL Error Handling:
+    - Error components:
+      - Numeric error code (e.g., 1146) - MySQL-specific
+      - Five-character `SQLSTATE value` (e.g., '42S02') - standardized across databases
+      - Message string - textual description
+    - Custom Error Signaling
+      - Common SQLSTATE codes:
+        - `'45000'` - General user-defined error
+        - `'23000'` - Integrity constraint violation
+
+      ```sql
+      SIGNAL SQLSTATE 'sqlstate_code'
+        SET MESSAGE_TEXT = '<your_error_message>';
+      ```
+
+  - `DELIMITER`: Used to change statement delimiter when creating triggers with semicolons
+
+    ```sql
+    DELIMITER <character>
+
+    <character>
+    DELIMITER;
+    ```
+
+  - Best Practices:
+    - Always use `DELIMITER` when creating triggers with multiple statements
+    - Include `IF EXISTS` when dropping triggers to avoid errors
+
+- [Example](./source/section_19-example.sql)
+- [Practice](./source/section_19-practice.sql)
 
 ---
 
